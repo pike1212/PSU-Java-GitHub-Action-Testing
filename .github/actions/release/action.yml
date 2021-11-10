@@ -45,4 +45,4 @@ runs:
         SIGNING_PASSPHRASE: ${{ github.event.inputs.SIGNING_PASSPHRASE }}
         OSSRH_USERNAME: ${{ github.event.inputs.OSSRH_USERNAME }}
         OSSRH_PASSWORD: ${{ github.event.inputs.OSSRH_PASSWORD }}
-        MAVEN_ARGS: ${{ github.event.inputs.MAVEN_ARGS}} $${{ github.event.inputs.$MAVEN_OPTS }}
+        MAVEN_ARGS: ${{ github.event.inputs.MAVEN_ARGS}} $${{ github.event.inputs.MAVEN_OPTS }}
