@@ -16,7 +16,7 @@ jobs:
         server-username: OSSRH_USERNAME
         server-password: OSSRH_PASSWORD
 
-    - name: Build with Maven
+    - name: Major Release with Maven
       shell: bash
       run: |
         git config --global user.name "ais-swe-ci"
