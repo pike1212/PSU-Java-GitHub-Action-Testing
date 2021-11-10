@@ -25,7 +25,7 @@ jobs:
         server-id: ossrh
         server-username: OSSRH_USERNAME
         server-password: OSSRH_PASSWORD
-        
+
     - name: Major Release
       if: contains(github.event.inputs.releasetype, 'Major')
       uses: ./.github/actions/release.yaml
