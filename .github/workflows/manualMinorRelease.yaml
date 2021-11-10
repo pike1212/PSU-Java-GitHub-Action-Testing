@@ -24,10 +24,7 @@ jobs:
         git status
         git branch -a
         git remote -v
-        git checkout -B master
-        git pull origin master
         git checkout develop
-        git pull origin develop
         echo -n $SIGNING_PRIVATE | base64 -di > ~/private.asc
         gpg --pinentry-mode loopback --batch --no-tty --yes --passphrase $SIGNING_PASSPHRASE --import ~/private.asc
         mvn -B clean build-helper:parse-version jgitflow:release-start -DreleaseVersion=$${parsedVersion.majorVersion}.$${parsedVersion.nextminorVersion}.0 -DdevelopmentVersion=$${parsedVersion.majorVersion}.$${parsedVersion.nextminorVersion}.1-SNAPSHOT -DallowUntracked=true -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
