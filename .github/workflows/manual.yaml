@@ -13,17 +13,17 @@ jobs:
     steps:
     - name: Major Release
       if: contains(github.event.releasetype, 'Major')
-      uses: /.github/actions/release.yaml
+      uses: ./.github/actions/release.yaml
       with:
         MAVEN_ARGS: -DreleaseVersion=$${parsedVersion.nextMajorVersion}.0.0 -DdevelopmentVersion=$${parsedVersion.nextMajorVersion}.0.1-SNAPSHOT -DallowUntracked=true $MAVEN_OPTS
     - name: Minor Release
       if: contains(github.event.releasetype, 'Minor')
-      uses: /.github/actions/release.yaml
+      uses: ./.github/actions/release.yaml
       with:
         MAVEN_ARGS: -DreleaseVersion=$${parsedVersion.majorVersion}.$${parsedVersion.nextMinorVersion}.0 -DdevelopmentVersion=$${parsedVersion.majorVersion}.$${parsedVersion.nextMinorVersion}.1-SNAPSHOT -DallowUntracked=true $MAVEN_OPTS
     - name: Patch Release
       if: contains(github.event.releasetype, 'Patch')
-      uses: /.github/actions/release.yaml
+      uses: ./.github/actions/release.yaml
       with:
         MAVEN_ARGS: -DreleaseVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.incrementalVersion} -DdevelopmentVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.nextIncrementalVersion}-SNAPSHOT -DallowUntracked=true $MAVEN_OPTS
 
