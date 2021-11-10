@@ -1,7 +1,31 @@
 inputs:
-  name: 
-    MAVEN_ARGS: 'Your maven arguements for release-start/finish'
-    default: '-DreleaseVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.incrementalVersion} -DdevelopmentVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.nextIncrementalVersion}-SNAPSHOT -DallowUntracked=true $MAVEN_OPTS'
+  MAVEN_OPTS: 
+    description: 'MAVEN_OPTS'
+    default: '-DallowSnapshots=false -DallowUntracked=true -Psign-artifacts'
+
+  MAVEN_ARGS: 
+    description: 'MAVEN_ARGS'
+    default: '-DreleaseVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.incrementalVersion} -DdevelopmentVersion=$${parsedVersion.majorVersion}.$${parsedVersion.minorVersion}.$${parsedVersion.nextIncrementalVersion}-SNAPSHOT -DallowUntracked=true '
+  
+  SIGNING_PRIVATE: 
+    description: 'SIGNING_PRIVATE'
+    default: ''
+  
+  SIGNING_PASSPHRASE: 
+    description: 'SIGNING_PASSPHRASE'
+    default: ''
+  
+  OSSRH_USERNAME: 
+    description: 'OSSRH_USERNAME'
+    default: ''
+  
+  OSSRH_PASSWORD: 
+    description: 'OSSRH_PASSWORD'
+    default: ''
+  
+  OSSRH_PASSWORD: 
+    description: 'OSSRH_PASSWORD'
+    default: ''
 runs:
   using: "composite"
   steps: 
@@ -20,8 +44,8 @@ runs:
         git commit --amend -m '[skip-ci] Updating develop poms back to pre merge state'
         git push --all --follow-tags
       env:
-        SIGNING_PRIVATE: ${{ secrets.SIGNING_PRIVATE }}
-        SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
-        OSSRH_USERNAME: aitci
-        OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-        MAVEN_ARGS: -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
+        SIGNING_PRIVATE: ${{ input.SIGNING_PRIVATE }}
+        SIGNING_PASSPHRASE: ${{ input.SIGNING_PASSPHRASE }}
+        OSSRH_USERNAME: ${{ input.OSSRH_USERNAME }}
+        OSSRH_PASSWORD: ${{ input.OSSRH_PASSWORD }}
+        MAVEN_ARGS: ${{ input.MAVEN_ARGS}} $${{ input.$MAVEN_OPTS }}
