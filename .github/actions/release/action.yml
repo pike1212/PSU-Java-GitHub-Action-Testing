@@ -27,6 +27,7 @@ runs:
   using: "composite"
   steps: 
     - name: Build with Maven
+      shell: bash
       run: |
         git config --global user.name "ais-swe-ci"
         git config --global user.email "aitci@psu.edu"
