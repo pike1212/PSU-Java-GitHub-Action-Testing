@@ -104,12 +104,12 @@ under the License.
     <slf4j.version>1.7.25</slf4j.version>
   </properties>
 
-  <distributionManagement>
+  <!-- <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement> -->
 
   <dependencyManagement>
     <dependencies>
