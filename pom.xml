@@ -21,7 +21,7 @@ under the License.
 
   <groupId>edu.psu.swe.libraries</groupId>
   <artifactId>craig-test</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>18178{parsedVersion.majorVersion}.18178{parsedVersion.minorVersion}.18178{parsedVersion.nextIncrementalVersion}-SNAPSHOT</version>
   <packaging>pom</packaging>
   <url>${project.parent}/libraries/jms-utils</url>
 
