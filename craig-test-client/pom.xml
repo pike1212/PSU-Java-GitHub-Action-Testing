@@ -14,7 +14,7 @@
   <parent>
     <groupId>edu.psu.swe.libraries</groupId>
     <artifactId>craig-test</artifactId>
-    <version>0.16-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>craig-test-client</artifactId>
