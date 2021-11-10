@@ -11,6 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Echo Inputs
+      shell: bash
+      run: |
+          echo "github.event.releasetype: ${{ github.event.releasetype }}"
     - name: Major Release
       if: contains(github.event.releasetype, 'Major')
       uses: ./.github/actions/release.yaml
