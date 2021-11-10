@@ -26,8 +26,8 @@ jobs:
         git checkout develop
         echo -n $SIGNING_PRIVATE | base64 -di > ~/private.asc
         gpg --pinentry-mode loopback --batch --no-tty --yes --passphrase $SIGNING_PASSPHRASE --import ~/private.asc
-        mvn -B clean build-helper:parse-version jgitflow:release-start -DreleaseVersion=$${parsedVersion.majorVersion}.0.0 -DdevelopmentVersion=$${parsedVersion.majorVersion}.0.0-SNAPSHOT -DallowUntracked=true -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
-        mvn -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$${parsedVersion.majorVersion}.0.0 -DdevelopmentVersion=$${parsedVersion.majorVersion}.0.0-SNAPSHOT -DallowUntracked=true -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
+        mvn -B clean build-helper:parse-version jgitflow:release-start -DreleaseVersion=$${parsedVersion.nextmajorVersion}.0.0 -DdevelopmentVersion=$${parsedVersion.nextmajorVersion}.0.1-SNAPSHOT -DallowUntracked=true -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
+        mvn -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$${parsedVersion.nextmajorVersion}.0.0 -DdevelopmentVersion=$${parsedVersion.nextmajorVersion}.0.1-SNAPSHOT -DallowUntracked=true -DallowSnapshots=false -DallowUntracked=true -Psign-artifacts
         git checkout develop
         git commit --amend -m '[skip-ci] Updating develop poms back to pre merge state'
         git push --all --follow-tags

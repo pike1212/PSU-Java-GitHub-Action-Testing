@@ -16,6 +16,11 @@ jobs:
         server-username: OSSRH_USERNAME
         server-password: OSSRH_PASSWORD
 
+    - name: Debug
+      shell: bash
+      run: |
+        echo "GITHUB_REF: $GITHUB_REF"
+
     - name: Patch Release with Maven
       shell: bash
       run: |
@@ -26,7 +31,8 @@ jobs:
         git checkout develop
         echo -n $SIGNING_PRIVATE | base64 -di > ~/private.asc
         gpg --pinentry-mode loopback --batch --no-tty --yes --passphrase $SIGNING_PASSPHRASE --import ~/private.asc
-        mvn -B clean build-helper:parse-version jgitflow:release-start -DreleaseVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion} -DdevelopmentVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT -DallowUntracked=true -Psign-artifacts -DallowSnapshots=false -DpushChanges=false -DallowUntracked=true -DpushReleases=false
+        export VERSION_TAG=`echo $GITHUB_REF | sed -n -e "s/.*\///gp"`
+        mvn -B clean build-helper:parse-version jgitflow:release-start -DreleaseVersion='\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}' -DdevelopmentVersion='\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT' -DallowUntracked=true -Psign-artifacts -DallowSnapshots=false -DpushChanges=false -DallowUntracked=true -DpushReleases=false
         mvn -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion} -DdevelopmentVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT -DallowUntracked=true -Psign-artifacts -DallowSnapshots=false -DpushChanges=false -DallowUntracked=true -DpushReleases=false
         git checkout develop
         git commit --amend -m '[skip-ci] Updating develop poms back to pre merge state'
