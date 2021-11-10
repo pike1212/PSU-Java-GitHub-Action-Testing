@@ -1,11 +1,6 @@
-name: Manually triggered workflow
+name: Manual - Major Release
 on:
   workflow_dispatch:
-    inputs:
-      releasetype:
-        description: 'Release Type: Major/Minor/Patch (default Patch)'
-        required: true
-        default: 'Patch'
 
 jobs:
   build:
