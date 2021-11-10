@@ -26,8 +26,8 @@ under the License.
   <url>${project.parent}/libraries/jms-utils</url>
 
 
-  <name>JMS Tools</name>
-  <description>Penn State's Open Source JMS Tools Project</description>
+  <name>PSU Java GitHub Action Test</name>
+  <description>Penn State's Open Source PSU Java GitHub Action Test Project</description>
   <inceptionYear>2017</inceptionYear>
 
   <modules>
@@ -35,9 +35,9 @@ under the License.
   </modules>
 
   <scm>
-    <url>https://github.com:PennState/craig-test.git</url>
-    <connection>scm:git:ssh://github.com:PennState/craig-test.git</connection>
-    <developerConnection>scm:git:ssh://github.com:PennState/craig-test.git</developerConnection>
+    <url>https://github.com:PennState/PSU-Java-GitHub-Action-Testing.git</url>
+    <connection>scm:git:ssh://github.com:PennState/PSU-Java-GitHub-Action-Testing.git</connection>
+    <developerConnection>scm:git:ssh://github.com:PennState/PSU-Java-GitHub-Action-Testing.git</developerConnection>
   </scm>
 
   <licenses>
