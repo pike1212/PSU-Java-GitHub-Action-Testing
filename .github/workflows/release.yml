@@ -33,7 +33,7 @@ jobs:
         echo "Release Starting ******************************************************************************************"
         mvn -B clean jgitflow:release-start -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS
         echo "Release Finishing ******************************************************************************************"
-        mvn -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS 
+        mvn -X -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS 
         echo "Switch Back to develop ******************************************************************************************"
         git checkout develop
         echo "commit and push ******************************************************************************************"
