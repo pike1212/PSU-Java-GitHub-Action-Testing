@@ -24,7 +24,7 @@ jobs:
       run: |
         git config --global user.name "ais-swe-ci"
         git config --global user.email "aitci@psu.edu"
-        git fetch
+        git pull
         git checkout -B master
         git checkout develop
         echo -n $SIGNING_PRIVATE | base64 -di > ~/private.asc
@@ -33,7 +33,7 @@ jobs:
         echo "Release Starting ******************************************************************************************"
         mvn -B clean jgitflow:release-start -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS
         echo "Release Finishing ******************************************************************************************"
-        mvn -X -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS 
+        mvn -B jgitflow:release-finish -Dgpg.passphrase=$SIGNING_PASSPHRASE -DreleaseVersion=$VERSION_TAG $MAVEN_ARGS 
         echo "Switch Back to develop ******************************************************************************************"
         git checkout develop
         echo "commit and push ******************************************************************************************"
