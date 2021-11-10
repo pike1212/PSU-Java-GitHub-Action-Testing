@@ -104,12 +104,12 @@ under the License.
     <slf4j.version>1.7.25</slf4j.version>
   </properties>
 
-  <!-- <distributionManagement>
+  <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
-  </distributionManagement> -->
+  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -212,7 +212,7 @@ under the License.
 
   <build>
     <plugins>
-      <!-- <plugin>
+      <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
         <version>1.6.3</version>
@@ -222,7 +222,7 @@ under the License.
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
-      </plugin> -->
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
