@@ -58,19 +58,10 @@ under the License.
       <organizationUrl>https://www.psu.edu</organizationUrl>
     </developer>
     <developer>
-      <id>chrisharm</id>
-      <name>Christopher Harm</name>
-      <email>crh5255@psu.edu</email>
-      <url>https://github.com/chrisharm</url>
-      <timezone>-0500</timezone>
-      <organization>The Pennsylvania State University</organization>
-      <organizationUrl>https://www.psu.edu</organizationUrl>
-    </developer>
-    <developer>
-      <id>smoyer64</id>
-      <name>Steve Moyer</name>
-      <email>smoyer@psu.edu</email>
-      <url>https://github.com/smoyer64</url>
+      <id>craigbenner</id>
+      <name>Craig Benner</name>
+      <email>craig.benner@psu.edu</email>
+      <url>https://github.com/bigbird023</url>
       <timezone>-0500</timezone>
       <organization>The Pennsylvania State University</organization>
       <organizationUrl>https://www.psu.edu</organizationUrl>
