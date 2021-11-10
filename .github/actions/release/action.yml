@@ -42,8 +42,8 @@ runs:
         git commit --amend -m '[skip-ci] Updating develop poms back to pre merge state'
         git push --all --follow-tags
       env:
-        SIGNING_PRIVATE: ${{ github.event.inputs.SIGNING_PRIVATE }}
-        SIGNING_PASSPHRASE: ${{ github.event.inputs.SIGNING_PASSPHRASE }}
-        OSSRH_USERNAME: ${{ github.event.inputs.OSSRH_USERNAME }}
-        OSSRH_PASSWORD: ${{ github.event.inputs.OSSRH_PASSWORD }}
-        MAVEN_ARGS: ${{ github.event.inputs.MAVEN_ARGS}} $${{ github.event.inputs.MAVEN_OPTS }}
+        SIGNING_PRIVATE: ${{github.event.inputs.SIGNING_PRIVATE}}
+        SIGNING_PASSPHRASE: ${{github.event.inputs.SIGNING_PASSPHRASE}}
+        OSSRH_USERNAME: ${{github.event.inputs.OSSRH_USERNAME}}
+        OSSRH_PASSWORD: ${{github.event.inputs.OSSRH_PASSWORD}}
+        MAVEN_ARGS: ${{github.event.inputs.MAVEN_ARGS}} $${{github.event.inputs.MAVEN_OPTS}}
